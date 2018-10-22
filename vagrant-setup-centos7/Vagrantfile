@@ -1,10 +1,3 @@
-
-# REFERENCES:
-# - https://www.postgresql.org/download/linux/redhat/
-# - https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
-# - https://stackoverflow.com/questions/14139017/cannot-connect-to-postgres-running-on-vm-from-host-machine-using-md5-method
-# - https://stackoverflow.com/questions/6508267/postgresql-create-schema-in-specific-database
-
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.hostname = "vagrant-postgresql-centos7"
