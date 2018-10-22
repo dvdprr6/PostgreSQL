@@ -1,0 +1,29 @@
+
+# REFERENCES:
+# - https://www.postgresql.org/download/linux/redhat/
+# - https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
+# - https://stackoverflow.com/questions/14139017/cannot-connect-to-postgres-running-on-vm-from-host-machine-using-md5-method
+# - https://stackoverflow.com/questions/6508267/postgresql-create-schema-in-specific-database
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.hostname = "vagrant-postgresql-centos7"
+  
+  config.vm.network "forwarded_port", guest: 5432, host: 7001
+  
+  config.ssh.forward_agent = true
+  
+  config.vm.synced_folder "./", "/vagrant"
+  
+    config.vm.provider :virtualbox do |v|
+    v.customize ["modifyvm", :id, "--memory", 1024]
+    v.customize ["modifyvm", :id, "--cpus", 4]
+  end
+    
+  config.vm.provision:"shell", path: "shell/installPuppet.sh"
+
+  config.vm.provision "puppet" do |puppet|
+    puppet.manifests_path = "puppet/manifests"
+    puppet.manifest_file = "setup.pp"
+  end
+end
