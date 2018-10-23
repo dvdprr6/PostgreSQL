@@ -90,6 +90,8 @@ Grant priviliges on database: ```postgres=# grant all privileges on database <db
 
 Create Schema: ```postgres=# \connect <db-name> ; create schema <schema-name>;```
 
+Grant priviliges on schema: ```grant all privileges on schema <schema-name> TO <username>;```
+
 ## References
 
 - https://www.postgresql.org/download/linux/redhat/
