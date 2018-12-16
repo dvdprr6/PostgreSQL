@@ -62,7 +62,7 @@ By default this command will place you in ```/home/vagrant/``` home directory.
 Open the following ```/var/lib/pgsql/11/data/postgresql.conf``` and uncomment and set the following fields:
 
 ```
-listen_address = '*'
+listen_addresses = '*'
 
 port = 5432
 ```
