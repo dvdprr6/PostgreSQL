@@ -80,6 +80,8 @@ Stop postgreSQL: ```systemctl stop postgresql-11```
 
 ## Useful PostgreSQL Commands
 
+Access Postgres Terminal: ```sudo -u postgresl psql```
+
 Create Postgres user: ```postgres=# create user <username>;```
 
 Create postgres DB: ```postgres=# create database <db-name>;```
